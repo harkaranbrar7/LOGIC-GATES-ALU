@@ -5,8 +5,7 @@ entity MUX_2x1 is
 port( x1: in std_logic;
       x2: in std_logic;
       x3: in std_logic;
-      y:  out std_logic;
-      z: out std_logic
+      y:  out std_logic
       );
 end MUX_2x1;
 
@@ -26,9 +25,8 @@ architecture struct of MUX_2x1 is
          z: out std_logic
         );
    end component;
-   component XOR_gate is
+   component NOT_gate is
    port( x: in std_logic;
-         y: in std_logic;
          z: out std_logic
         );
    end component;
@@ -40,11 +38,10 @@ architecture struct of MUX_2x1 is
 begin
    
    --map signals of the outer component to subcomponents - idea of parameter passing
-   map_XOR_gate: XOR_gate port map (x1,x2, temp1);
-   map_XOR_gate1: XOR_gate port map (temp1,x3, y);
-   map_AND_gate1: AND_gate port map (temp1, x3, temp2); 
-   map_AND_gate2: AND_gate port map (x1, x2, temp3);           --now, temp1 holds the output of the AND
-   map_OR_gate:  OR_gate port map (temp2, temp3, z);             --then, temp1 is passed to the OR as an input
-                                                              --output of the OR becomes the output(y) of AND_OR
+   map_NOT_gate: NOT_gate port map (x3, temp1);
+   map_AND_gate1: AND_gate port map (x1, x3, temp2); 
+   map_AND_gate2: AND_gate port map (x2, temp1, temp3);           --now, temp1 holds the output of the AND
+   map_OR_gate:  OR_gate port map (temp2, temp3, y);             --then, temp1 is passed to the OR as an input
+                                                              --output of the OR becomes the output(y) of MUX_2x1
 
 end struct;

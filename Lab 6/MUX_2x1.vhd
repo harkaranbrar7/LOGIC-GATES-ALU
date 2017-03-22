@@ -1,15 +1,15 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity AND_OR is
+entity MUX_2x1 is
 port( x1: in std_logic;
       x2: in std_logic;
       x3: in std_logic;
       y:  out std_logic
       );
-end AND_OR;
+end MUX_2x1;
 
-architecture struct of AND_OR is
+architecture struct of MUX_2x1 is
 
    --use previously designed subcomponents
    component AND_gate is
@@ -42,6 +42,6 @@ begin
    map_AND_gate1: AND_gate port map (x1, x3, temp2); 
    map_AND_gate2: AND_gate port map (x2, temp1, temp3);           --now, temp1 holds the output of the AND
    map_OR_gate:  OR_gate port map (temp2, temp3, y);             --then, temp1 is passed to the OR as an input
-                                                              --output of the OR becomes the output(y) of AND_OR
+                                                              --output of the OR becomes the output(y) of MUX_2x1
 
 end struct;
