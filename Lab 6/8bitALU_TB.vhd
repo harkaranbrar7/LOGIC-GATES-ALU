@@ -69,8 +69,8 @@ architecture TB of EightBitALU_TB is
      op0  <='0';
  
         wait for 10 ns;
-		-- assert ((cout = '0') and (z = '0')) 
-		-- report "case1 failed!" severity error;
+		assert ((ovf = '0')) 
+		report "case1 failed!" severity error;
          
          
          --case2
@@ -94,8 +94,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='1';
         wait for 10 ns;
-		 --assert ((cout = '0') and (z = '0')) 
-		 --report "case2 failed!" severity error;
+		 assert ((ovf = '0')) 
+		 report"case2 failed!" severity error;
          
          
          --case3
@@ -119,8 +119,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '0') and (z = '0')) 
-		-- report "case3 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case3 failed!" severity error;
           
          
          --case4
@@ -144,8 +144,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '0') and (z = '0')) 
-		-- report "case4 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case4 failed!" severity error;
 		 
 		  --case5
 	  a1  <='0';
@@ -168,8 +168,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '1') and (z = '1')) 
-		-- report "case5 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case5 failed!" severity error;
 		 
 		 
 		  --case6
@@ -193,8 +193,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='1';
          wait for 10 ns;
-		-- assert ((cout = '0') and (z = '1')) 
-		-- report "case6 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case6 failed!" severity error;
           
 		   --case7
 	 a1  <='0';
@@ -217,8 +217,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
          wait for 10 ns;
-		-- assert ((cout = '1') and (z = '0')) 
-		-- report "case7 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case7 failed!" severity error;
           
 		  
 		   --case8
@@ -242,8 +242,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
        wait for 10 ns;
-	--	 assert ((cout = '0') and (z = '10)) 
-	--	 report "case8 failed!" severity error;
+	assert ((ovf = '0')) 
+	report "case8 failed!" severity error;
           
      --case9
 	  a1  <='1';
@@ -266,8 +266,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='0';
        wait for 10 ns;
-	--	 assert ((cout = '0') and (z = '10)) 
-	--	 report "case9 failed!" severity error;      
+	assert ((ovf = '0')) 
+	report "case9 failed!" severity error;      
 		  
           --case10
 	  a1  <='1';
@@ -290,8 +290,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='1';
        wait for 10 ns;
-	--	 assert ((cout = '0') and (z = '10)) 
-	--	 report "case10 failed!" severity error;
+	assert ((ovf = '0')) 
+	report "case10 failed!" severity error;
 	
 	
 	 --case11
@@ -315,8 +315,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
        wait for 10 ns;
-	--	 assert ((cout = '0') and (z = '10)) 
-	--	 report "case11 failed!" severity error;
+	assert ((ovf = '0')) 
+	report "case11 failed!" severity error;
 	
 	
 	 --case12
@@ -340,8 +340,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
        wait for 10 ns;
-	--	 assert ((cout = '0') and (z = '10)) 
-	--	 report "case12 failed!" severity error;
+	assert ((ovf = '0')) 
+	report "case12 failed!" severity error;
 	
 	
 	
@@ -366,8 +366,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '0') and (z = '0')) 
-		-- report "case13 failed!" severity error;
+		assert ((ovf = '1')) 
+		report"case13 failed!" severity error;
          
          
          --case14
@@ -391,8 +391,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='1';
         wait for 10 ns;
-		 --assert ((cout = '0') and (z = '0')) 
-		 --report "case14 failed!" severity error;
+		 assert ((ovf = '1')) 
+		 report"case14 failed!" severity error;
          
          
          --case15
@@ -416,8 +416,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '0') and (z = '0')) 
-		-- report "case15 failed!" severity error;
+		assert ((ovf = '1')) 
+		report"case15 failed!" severity error;
           
          
          --case16
@@ -441,8 +441,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '0') and (z = '0')) 
-		-- report "case16 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case16 failed!" severity error;
 		 
 		  --case17
 	  a1  <='1';
@@ -465,8 +465,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='0';
         wait for 10 ns;
-		-- assert ((cout = '1') and (z = '1')) 
-		-- report "case17 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case17 failed!" severity error;
 		 
 		 
 		  --case18
@@ -490,8 +490,8 @@ architecture TB of EightBitALU_TB is
      op1  <='0';
      op0  <='1';
          wait for 10 ns;
-		-- assert ((cout = '0') and (z = '1')) 
-		-- report "case18 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case18 failed!" severity error;
           
 		   --case19
 	  a1  <='1';
@@ -514,8 +514,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
          wait for 10 ns;
-		-- assert ((cout = '1') and (z = '0')) 
-		-- report "case19 failed!" severity error;
+		assert ((ovf = '0')) 
+		report"case19 failed!" severity error;
           
 		  
 		   --case20
@@ -539,8 +539,8 @@ architecture TB of EightBitALU_TB is
      op1  <='1';
      op0  <='0';
        wait for 10 ns;
-	--	 assert ((cout = '0') and (z = '10)) 
-	--	 report "case20 failed!" severity error;
+	assert ((ovf = '0')) 
+	report "case20 failed!" severity error;
           
 
 	
