@@ -38,10 +38,10 @@ architecture struct of MUX_2x1 is
 begin
    
    --map signals of the outer component to subcomponents - idea of parameter passing
-   map_NOT_gate: NOT_gate port map (x3, temp1);
-   map_AND_gate1: AND_gate port map (x1, x3, temp2); 
-   map_AND_gate2: AND_gate port map (x2, temp1, temp3);           --now, temp1 holds the output of the AND
-   map_OR_gate:  OR_gate port map (temp2, temp3, y);             --then, temp1 is passed to the OR as an input
-                                                              --output of the OR becomes the output(y) of MUX_2x1
+   map_NOT_gate: NOT_gate port map (x3, temp1); 			-- now, temp1 holds the output of the NOT
+   map_AND_gate1: AND_gate port map (x1, x3, temp2);        --now, temp2 holds the output of the AND1
+   map_AND_gate2: AND_gate port map (x2, temp1, temp3);        -- now, temp3 holds the output of the AND2
+   map_OR_gate:  OR_gate port map (temp2, temp3, y);             --output of the OR becomes the output(y) of MUX_2x1
+                                                              
 
 end struct;
