@@ -2,34 +2,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity EightBitALU is
-port( a1:  in std_logic;
-	  a2:  in std_logic;
-      a3:  in std_logic;
-	  a4:  in std_logic;
-      a5:  in std_logic;
-	  a6:  in std_logic;
-      a7:  in std_logic; 
-	  a8:  in std_logic;
-	  b1:  in std_logic;
-	  b2:  in std_logic;
-      b3:  in std_logic;
-	  b4:  in std_logic;
-      b5:  in std_logic;
-	  b6:  in std_logic;
-      b7:  in std_logic; 
-	  b8:  in std_logic;
+port( 
+	  a:   in std_logic_vector(8 downto 1);
+	  b:   in std_logic_vector(8 downto 1);
   b_invrt: in std_logic;
-      op1: in std_logic;
-      op0: in std_logic;
-     ovf: out std_logic;
-	  r1: out std_logic;
-	  r2: out std_logic;
-	  r3: out std_logic;
-	  r4: out std_logic;
-	  r5: out std_logic;
-	  r6: out std_logic;
-	  r7: out std_logic;
-	  r8: out std_logic
+      op:  in std_logic_vector(1 downto 0);
+     ovf:  out std_logic;
+     result:    out std_logic_vector(8 downto 1)
+	
       );
 end EightBitALU;
 
@@ -73,13 +53,13 @@ architecture struct of EightBitALU is
 begin
    
    --map signals of the outer component to subcomponents - idea of parameter passing
-  	map_OneBitALU1: OneBitALU port map (a1,b1,b_invrt,op1,op0,b_invrt,tcout1,r1);
-  	map_OneBitALU2: OneBitALU port map (a2,b2,tcout1,op1,op0,b_invrt,tcout2,r2);
-  	map_OneBitALU3: OneBitALU port map (a3,b3,tcout2,op1,op0,b_invrt,tcout3,r3);
-  	map_OneBitALU4: OneBitALU port map (a4,b4,tcout3,op1,op0,b_invrt,tcout4,r4);
-  	map_OneBitALU5: OneBitALU port map (a5,b5,tcout4,op1,op0,b_invrt,tcout5,r5);
-  	map_OneBitALU6: OneBitALU port map (a6,b6,tcout5,op1,op0,b_invrt,tcout6,r6);
-  	map_OneBitALU7: OneBitALU port map (a7,b7,tcout6,op1,op0,b_invrt,tcout7,r7);
- map_OneBitALUOF: OneBitALUOF port map (a8,b8,tcout7,op1,op0,b_invrt,ovf,r8);	
+  	map_OneBitALU1: OneBitALU port map (a(1),b(1),b_invrt,op(1),op(0),b_invrt,tcout1,result(1));
+  	map_OneBitALU2: OneBitALU port map (a(2),b(2),tcout1,op(1),op(0),b_invrt,tcout2,result(2));
+  	map_OneBitALU3: OneBitALU port map (a(3),b(3),tcout2,op(1),op(0),b_invrt,tcout3,result(3));
+  	map_OneBitALU4: OneBitALU port map (a(4),b(4),tcout3,op(1),op(0),b_invrt,tcout4,result(4));
+  	map_OneBitALU5: OneBitALU port map (a(5),b(5),tcout4,op(1),op(0),b_invrt,tcout5,result(5));
+  	map_OneBitALU6: OneBitALU port map (a(6),b(6),tcout5,op(1),op(0),b_invrt,tcout6,result(6));
+  	map_OneBitALU7: OneBitALU port map (a(7),b(7),tcout6,op(1),op(0),b_invrt,tcout7,result(7));
+ map_OneBitALUOF: OneBitALUOF port map (a(8),b(8),tcout7,op(1),op(0),b_invrt,ovf,result(8));	
 
 end struct;

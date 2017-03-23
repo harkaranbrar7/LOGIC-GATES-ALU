@@ -84,7 +84,7 @@ begin
    
    --map signals of the outer component to subcomponents - idea of parameter passing
   	map_NOT_gate: NOT_gate port map (b, tb1);     --tb1 holds the output of the NOT gate
-  	map_MUX_2x1: MUX_2x1 port map (b,tb1,b_invrt,tinv);     --tinv holds the output of the 2x1 MUX gate
+  	map_MUX_2x1: MUX_2x1 port map (tb1,b,b_invrt,tinv);     --tinv holds the output of the 2x1 MUX gate
    	map_AND_gate1: AND_gate port map (a, tinv, tand1);     --tand1 holds the output of the AND gate
 	map_OR_gate1:  OR_gate port map (a, tinv, tor1);       --tor1  holds the output of the OR  gate
     map_OneBitFullAdder:  OneBitFullAdder port map (a, tinv, cin , tbit1, tcout);   -- tbit1  holds the output of the 1bit adder and output is cout
