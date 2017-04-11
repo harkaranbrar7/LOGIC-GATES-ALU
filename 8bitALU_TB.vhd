@@ -8,12 +8,12 @@ architecture TB of EightBitALU_TB is
 
    --the component we are testing is EightBitALU
    component EightBitALU is
-   port(   a:   in std_logic_vector(8 downto 1);
-	       b:   in std_logic_vector(8 downto 1);
-     b_invrt:   in std_logic;
+   port(   a:   in std_logic_vector(8 downto 1); -- (change it to (7 downto 0)
+	       b:   in std_logic_vector(8 downto 1); -- (change it to (7 downto 0)
+     b_invrt:   in std_logic;                    
       	  op:   in std_logic_vector(1 downto 0);
          ovf:   out std_logic;
-      result:   out std_logic_vector(8 downto 1)
+      result:   out std_logic_vector(8 downto 1)  -- (change it to (7 downto 0)
 	
       );
        
