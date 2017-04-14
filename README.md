@@ -1,10 +1,11 @@
 # Logic Gates
 initial logic
 
-Contains
+  It contains 
 
-LOGIC GATES
+    LOGIC GATES with test bench programs
 
-AND,OR,NOT & XOR
+       AND, OR, NOT & XOR
 
 
+MUX_2x1 and Mux_4x1 are made with gates above
